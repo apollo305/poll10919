@@ -21,4 +21,11 @@ class Option(models.Model):
 
     def __str__(self):
         return str(self.id) + ")" + self.subject
-    
+
+class Option(models.Model):
+    poll_id = models.IntegerField('所屬投票主題')
+    title = models.CharField('選樣標題', max_length = 200)
+    count = models.IntegerField(default = 0)
+
+    def __str__(self):
+        return str(self.id) + "+" +self.title +"@" +str(self.poll_id)
